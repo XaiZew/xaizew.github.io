@@ -20,6 +20,11 @@ addEventListener("load", (event) => {
 
     skillsOffsetY = getOffset(document.getElementsByTagName("skills")[0]) - 50;
     timelineOffsetY = getOffset(document.getElementsByTagName("timeline")[0]) - 50
+    timeline_sections = document.getElementsByClassName("timeline_section");
+    for (i = 0; i < timeline_sections.length; i++) {
+        if (timeline_sections[i] == document.getElementsByClassName("timeline_section_left")[0])
+            timeline_sections[i] = document.getElementsByClassName("timeline_section_left")[0];
+    }
 
     var graphs = document.getElementsByClassName("graph");
 
@@ -88,6 +93,7 @@ var skillsScroll = 550;
 
 var timelineOffsetY;
 var timelineText = [];
+var timeline_sections = [];
 
 addEventListener("scroll", (event) => {
 
@@ -111,17 +117,31 @@ addEventListener("scroll", (event) => {
 
 
     timelineText = document.getElementsByClassName("timeline_text");
-    if ( (window.scrollY >= timelineOffsetY - 700 && oldScrollY < window.scrollY) || (window.scrollY <= (timelineOffsetY + 1400) && oldScrollY > window.scrollY) ) {
+    if ( (window.scrollY >= timelineOffsetY - 700 && oldScrollY < timelineOffsetY - 700) || (window.scrollY <= (timelineOffsetY + 400) && oldScrollY > window.scrollY) ) {
         console.log("scrolled timeline");
 
         for (i = 0; i < timelineText.length; i++) {
             timelineText[i].style.display = "inline";
+        }
+        for (i = 0; i < timeline_sections.length; i++) {
+            var translateXVal = 120;
+            if (window.innerWidth >= 768) translateXVal = 189;
+            timeline_sections[i].style = "transform: translateX("+translateXVal+"px)";
+            if (i == 1)
+            timeline_sections[i].style = "transform: translateX("+-translateXVal+"px)";
         }
     }
     if (window.scrollY < timelineOffsetY - 800 || window.scrollY > timelineOffsetY + 900) {
         console.log("hidden timeline")
         for (i = 0; i < timelineText.length; i++) {
             timelineText[i].style.display = "none";
+        }
+        var translateXVal = 16;
+        if (window.innerWidth > 768) translateXVal = 44;
+        for (i = 0; i < timeline_sections.length; i++) {
+            timeline_sections[i].style = "transform: translateX("+translateXVal+"px)";
+            if (i == 1)
+                timeline_sections[i].style = "transform: translateX("+-translateXVal+"px)";
         }
     }
 
