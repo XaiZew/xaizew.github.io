@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./index.js"></script>
+    <title>J.T</title>
+</head>
+<body>
+    <nav>
+        <div class="border"></div>
+        <nav_top>
+            <h1>J.T</h1>
+            <!-- <div class="nav_btn webhide" onclick="nav_func();"></div> -->
+            <div id="nav_burger" class="webhide" onclick="nav_func(this);">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+        </nav_top>
+        <nav_btm>
+            <a href="#hero" class="nav_active">Home</a>
+            <a href="#">About</a>
+            <a href="#">Skills</a>
+            <a href="#">Projects</a>
+            <a href="#">Contact</a>
+        </nav_btm>
+        <div class="border"></div>
+    </nav>
+
+    <hero id="hero">
+        <div>
+            <div>
+            <div class="flexbox">
+                <div class="border"></div>
+                <div class="hero_text">
+                    <h1>Jacob Taylor</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.</p>
+                </div>
+            </div>
+            <div class="hero_btns">
+                <div class="dark_arrow_btn"><span>Read More</span></div>
+                <div class="light_arrow_btn">Contact Me</div>
+            </div>
+            </div>
+        </div>
+        <div class="webshow">
+            <img src="./images/guy.jpg" alt="" class="triangle_mask">
+        </div>
+    </hero>
+
+    <about id="about">
+        <h2>About Me</h2>
+        <h3>A Get To Know Me</h3>
+
+
+        <div class="flexbox">
+                <div class="about_text">
+                    <h4>Web Developer/Software Engineer</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris. Maecenas vitae mattis tellus. Nullam quis imperdiet augue.</p>
+                </div>
+                <div>
+                <img src="./images/guy.jpg" alt="" class="triangle_mask">
+                </div>
+        </div>
+    </about>
+
+    <skills id="skills">
+        <h2>Skills</h2>
+        <h3>My Technical Abilities</h3>
+
+        <div class="skills_cards">
+
+            <div class="skills_cards_top">
+
+                <div class="skills_card skills_card_smaller webshow">
+                    <img src="./images/icons/unity.svg">
+    
+                    <div class="skills_card_hover">
+                        <div class="graph" data-percent="75" data-size="85" data-line="4" data-length="18"></div>
+                    </div>
+                </div>
+    
+                <div class="skills_card skills_card_upside">
+                    <img src="./images/icons/c++.svg">
+    
+                    <div class="skills_card_hover">
+                        <div class="graph" data-percent="75" data-size="130" data-line="6" data-length="18"></div>
+                    </div>
+                </div>
+    
+                <div class="skills_card">
+                    <img src="./images/icons/csharp.svg">
+    
+                    <div class="skills_card_hover">
+                        <div class="graph" data-percent="20" data-size="130" data-line="6" data-length="2"></div>
+                    </div>
+                </div>
+    
+                <div class="skills_card skills_card_upside">
+                    <img src="./images/icons/css.svg">
+    
+                    <div class="skills_card_hover">
+                        <div class="graph" data-percent="75" data-size="130" data-line="6" data-length="18"></div>
+                    </div>
+                </div>
+    
+                <div class="skills_card skills_card_small">
+                    <img src="./images/icons/html.svg">
+    
+                    <div class="skills_card_hover">
+                        <div class="graph" data-percent="20" data-size="90" data-line="5" data-length="2"></div>
+                    </div>
+                </div>
+    
+                <div class="skills_card skills_card_upside skills_card_smaller webshow" style="max-width: 110px; max-height: 100px; transform: rotate(180deg) translateY(-10px);">
+                    <img src="./images/icons/node-js.svg">
+    
+                    <div class="skills_card_hover">
+                        <div class="graph" data-percent="75" data-size="75" data-line="4" data-length="18"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="skills_cards_btm webhide">
+                <div class="skills_card skills_card_smaller">
+                    <img src="./images/icons/unity.svg">
+    
+                    <div class="skills_card_hover">
+                        <div class="graph" data-percent="75" data-size="75" data-line="4" data-length="18"></div>
+                    </div>
+                </div>
+                <div class="skills_card skills_card_smaller">
+                    <img src="./images/icons/node-js.svg">
+    
+                    <div class="skills_card_hover">
+                        <div class="graph" data-percent="75" data-size="75" data-line="4" data-length="18"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </skills>
+
+    <timeline id="timeline">
+
+        <h2>Timeline</h2>
+        <h3>My experience's thus far</h3>
+
+        <div class="timeline_dot"></div>
+        <div class="timeline_section">
+            <div class="timeline_line"></div>
+            <div class="timeline_text">
+                <h1>College</h1>
+                <p>In 2022 - 2023 I attended Farnborough Tech where I got a Level 3 Games Development Qualification.</p>
+            </div>
+        </div>
+        <div class="timeline_section timeline_section_left">
+            <div class="timeline_text">
+                <h1>Raedam</h1>
+                <p>In 2022 - 2023 while attending College I worked with a company named Raedam where I developed their website.</p>
+            </div>
+            <div class="timeline_line"></div>
+        </div>
+        <div class="timeline_section">
+            <div class="timeline_line"></div>
+            <div class="timeline_text">
+                <h1>University</h1>
+                <p>In 2023 - 2025 I attended Reading University where I got a Computer Science - Software Engineering Qualification</p>
+            </div>
+        </div>
+        <div class="timeline_bottom"></div>
+    </timeline>
+
+    <projects id="projects">
+        <h2>Projects</h2>
+        <h3>What I've done</h3>
+        <div class="projects_cards">
+            <div class="projects_card">
+                <img src="./images/raedam-backdrop.png" alt="">
+                <h1>Raedam</h1>
+                <p>HeartRace is a video game built using the game engine; Unity. It’s a parkour-movement-shooter with 3 levels, the final level; a boss fight. A build of the game and the assets/scripts used is available on my GitHub.</p>
+                <a href="https://www.raedam.com" class="readmore">Read More</a>
+            </div>
+            <div class="projects_card">
+                <img src="./images/game_cover_final.png" alt="">
+                <h1>HeartRace</h1>
+                <p>HeartRace is a video game built using the game engine; Unity. It’s a parkour-movement-shooter with 3 levels, the final level; a boss fight. A build of the game and the assets/scripts used is available on my GitHub.</p>
+                <a href="https://github.com/XaiZew/HeartRace" class="readmore">Read More</a>
+            </div>
+        </div>
+    </projects>
+
+    <testimonial id="testimonial">
+        <h2>Testimonies</h2>
+        <h3>What other people have to say</h3>
+
+        <div class="testimonial_cards">
+            <div class="testimonial_card">
+                <div class="testimonial_card_top">
+                    <img src="./images/anotherguy.jpg" alt="">
+                    <div>
+                        <h1>Title</h1>
+                        <h2>Job Title</h2>
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
+            </div>
+            <div class="testimonial_card">
+                <div class="testimonial_card_top">
+                    <img src="./images/anotherguy.jpg" alt="">
+                    <div>
+                        <h1>Title</h1>
+                        <h2>Job Title</h2>
+                    </div>
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.</p>
+            </div>
+        </div>
+
+        <div class="testimonial_dots">
+            <div class="testimonial_dot testimonial_dot_active"></div>
+            <div class="testimonial_dot"></div>
+            <div class="testimonial_dot"></div>
+        </div>
+    </testimonial>
+
+    <contact id="contact">
+        <h2>Contact</h2>
+        <h3>How to get in touch</h3>
+        <form>
+            <div class="contact_input">
+                <label for="name">Name</label>
+                <input type="text" placeholder="Insert your name" name="email">
+            </div>
+            <div class="contact_input">
+                <label for="name">Email</label>
+                <input type="email" placeholder="Insert your email" name="email">
+            </div>
+            <div class="contact_input">
+                <label for="message">Message</label>
+                <textarea placeholder="Insert your message" name="message"></textarea>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </contact>
+
+    <footer>
+        <div>
+            <div class="footer_links">
+                <a href="#hero">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Project</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer_socials">
+                <img src="./images/socials/github.svg" alt="" onclick="window.open('https://github.com/XaiZew')">
+                <img src="./images/socials/linkedin.svg" alt="" onclick="window.open('')">
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
