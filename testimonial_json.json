@@ -1,0 +1,20 @@
+[
+    {
+        "title" : "Title",
+        "subtitle" : "Job Title",
+        "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
+        "img" : "./images/anotherguy.jpg"
+    },
+    {
+        "title" : "Title",
+        "subtitle" : "Job Title",
+        "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
+        "img" : "./images/anotherguy.jpg"
+    },
+    {
+        "title" : "Title",
+        "subtitle" : "Job Title",
+        "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
+        "img" : "./images/anotherguy.jpg"
+    }
+]

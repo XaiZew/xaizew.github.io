@@ -325,8 +325,8 @@ nav_top h1 {
 }
 
 .border {
-    margin: 0 10px;
-    width: 1px;
+    margin: 0 2px;
+    width: 2px;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.64) 34.9%, rgba(0, 0, 0, 0.64) 52.6%, rgba(0, 0, 0, 0.64) 70.83%, rgba(0, 0, 0, 0) 100%);
 }
 
@@ -342,7 +342,7 @@ nav_top h1 {
 
 hero {
     margin-top: 10vh;
-    padding-left: 13px;
+    padding-left: 2px;
     display: block;
     width: 100%;
     margin-bottom: 120px;
@@ -366,8 +366,8 @@ about {
     -webkit-mask-size: cover;
     mask-size: cover;
 
-    max-width: 500px;
-    height: 400px;
+    max-width: 300px;
+    height: 240px;
 }
 
 .about_text {
@@ -403,7 +403,7 @@ skills {
     flex-direction: column;
 
     margin-top: 5rem;
-    transform: translateX(14px);
+    transform: scale(0.8);
 }
 
 .skills_cards_top {
@@ -617,24 +617,19 @@ timeline {
     display: flex;
     margin: 0 auto;
     border-left: 2px solid #68C3D4;
-    transform: translateX(120px);
+    transform: translateX(96px);
     height: 200px;
 }
 
 .timeline_section_left {
     border-right: 2px solid #68C3D4;
     border-left: none;
-    transform: translateX(-120px);
+    transform: translateX(-96px);
 }
 
 .timeline_section_left .timeline_text {
     transform: translateX(30px);
     animation: fade-left-timeline-mobile 1s ease-in-out;
-
-    > h1 {
-        text-align: right;
-        margin-right: 35px;
-    }
 }
 
 .timeline_line {
@@ -645,7 +640,7 @@ timeline {
 }
 
 .timeline_text {
-    max-width: 198px;
+    max-width: 150px;
     margin: 0 5px;
     text-align: left;
 
@@ -656,7 +651,7 @@ timeline {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 18px;
     line-height: 33px;
 }
 
@@ -669,7 +664,7 @@ timeline {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 24px;
 
     color: rgba(44, 44, 44, 0.8);
@@ -796,6 +791,22 @@ testimonial {
     }
 }
 
+#testimonial_slides {
+    display: flex;
+}
+
+.testimonial_slide {
+    display: none;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    margin: 58px auto;
+}
+
+.testimonial_slide_active {
+    display: flex;
+}
+
 .testimonial_cards {
     display: flex;
     justify-content: center;
@@ -914,14 +925,15 @@ footer {
         margin: auto;
         display: flex;
         justify-content: space-between;
-        max-width: 384px;
+        max-width: 300px;
         width: 100%;
         > .footer_links {
             display: flex;
-            gap: 15px;
+            gap: 10px;
 
             > a {
                 color: #000000;
+                font-size: 12px;
             }
         }
     }
@@ -961,6 +973,7 @@ footer {
     }
     hero {
         max-width: 968px;
+        padding-left: 12px;
         margin: 10vh auto 240px auto;
         display: flex;
         justify-content: space-between;
@@ -972,7 +985,14 @@ footer {
         display: block !important;
     }
 
+    .border {
+        margin: 0 10px;
+        width: 1px;
+    }
 
+    .skills_cards {
+        transform: translateX(-14px);
+    }
     .skills_card {
         margin: 0 -10px;
     }
@@ -1011,12 +1031,20 @@ footer {
     .timeline_text {
         max-width: 270px;
         margin: 0 10px;
+
+        > h1 {
+            font-size: 22px;
+        }
+        > p {
+            font-size: 16px;
+            margin-right: 48px;
+        }
     }
     .timeline_section_left .timeline_text {
         transform: translateX(100px);
 
         > h1 {
-            margin-right: 102px;
+            text-align: left;
         }
     }
     .timeline_section {
@@ -1055,6 +1083,11 @@ footer {
         > div {
             max-width: 428px;
         }
+    }
+
+    .triangle_mask {
+        max-width: 420px;
+        height: 340px;
     }
 }
 

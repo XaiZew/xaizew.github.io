@@ -18,6 +18,7 @@ var skillsOffsetY;
 
 addEventListener("load", (event) => {
 
+    testimonial_slides();
     skillsOffsetY = getOffset(document.getElementsByTagName("skills")[0]) - 50;
     timelineOffsetY = getOffset(document.getElementsByTagName("timeline")[0]) - 50
     timeline_sections = document.getElementsByClassName("timeline_section");
@@ -124,7 +125,7 @@ addEventListener("scroll", (event) => {
             timelineText[i].style.display = "inline";
         }
         for (i = 0; i < timeline_sections.length; i++) {
-            var translateXVal = 120;
+            var translateXVal = 96;
             if (window.innerWidth >= 768) translateXVal = 189;
             timeline_sections[i].style = "transform: translateX("+translateXVal+"px)";
             if (i == 1)
@@ -154,4 +155,60 @@ function getOffset(el) {
     elemRect     = el.getBoundingClientRect(),
     offset       = elemRect.top - bodyRect.top;
     return offset;
+}
+
+function testimonial_slides() {
+    let myRequest = new Request("./testimonial_json.json");
+    let cardCount = 0;
+    
+    fetch(myRequest)
+        .then(function(resp) {
+            return resp.json();
+        })
+        .then(function(data) {
+            let testimonial_slides = document.getElementById("testimonial_slides");
+            let testimonial_btns = document.getElementById("testimonial_btns");
+            let cardPerSlide = 2;
+            if (innerWidth < 1024) cardPerSlide = 1;
+            for (y = 0; y < Math.ceil(data.length / cardPerSlide); y++) { // foreach slide
+                let testimonial_btn = testimonial_btns.appendChild(document.createElement("div"));
+                testimonial_btn.classList.add("testimonial_dot");
+                testimonial_btn.setAttribute("onclick", "testimonial_btn("+y+")");
+                if (y == 0) testimonial_btn.classList.add("testimonial_dot_active");
+                let testimonial_slide = testimonial_slides.appendChild(document.createElement("div"));
+                testimonial_slide.classList.add("testimonial_slide")
+                if (y == 0) testimonial_slide.classList.add("testimonial_slide_active");
+                for (x = 0; x < cardPerSlide; x++) { // foreach card per slide
+                        if (cardCount >= data.length) return
+                        let testimonial_card = testimonial_slide.appendChild(document.createElement("div"));
+                        testimonial_card.classList.add("testimonial_card");
+                        let testimonial_card_top = testimonial_card.appendChild(document.createElement("div"))
+                        testimonial_card_top.classList.add("testimonial_card_top");
+                        let testimonial_card_top_img = testimonial_card_top.appendChild(document.createElement("img"));
+                        testimonial_card_top_img.setAttribute("src", data[cardCount].img);
+                        let testimonial_card_top_div = testimonial_card_top.appendChild(document.createElement("div"));
+                        let testimonial_card_title = testimonial_card_top_div.appendChild(document.createElement("h1"));
+                        testimonial_card_title.innerHTML = data[cardCount].title
+                        testimonial_card_subtitle = testimonial_card_top_div.appendChild(document.createElement("h2"));
+                        testimonial_card_subtitle.innerHTML = data[cardCount].subtitle;
+                        testimonial_card_text = testimonial_card.appendChild(document.createElement("p"));
+                        testimonial_card_text.innerHTML = data[cardCount].text;
+                        cardCount++;
+                }
+            }
+
+        })
+}
+
+function testimonial_btn(index) {
+    let testimonial_slide_array = document.getElementsByClassName("testimonial_slide");
+    let testimonial_dots = document.getElementsByClassName("testimonial_dot");
+    for (x = 0; x < testimonial_slide_array.length; x++) {
+        testimonial_slide_array[x].classList.remove("testimonial_slide_active");
+        testimonial_dots[x].classList.remove("testimonial_dot_active");
+        if (x == index) {
+            testimonial_slide_array[x].classList.add("testimonial_slide_active");
+            testimonial_dots[x].classList.add("testimonial_dot_active");
+        }
+    }
 }
