@@ -98,6 +98,14 @@ var timeline_sections = [];
 
 addEventListener("scroll", (event) => {
 
+    // navbar dark mode
+    if (window.scrollY > 80 && oldScrollY < 80) {
+        dark_mode_nav();
+    }
+    else if (window.scrollY < 80 && oldScrollY > 80) {
+        dark_mode_nav();
+    }
+
     if ( (window.scrollY >= skillsOffsetY - skillsScroll && oldScrollY < (skillsOffsetY - skillsScroll)) || (window.scrollY <= (skillsOffsetY + 300) && (oldScrollY) > (skillsOffsetY + 300)) ) {
         console.log("scrolled eng");
         var skillsCards = document.getElementsByClassName("skills_card");
@@ -211,4 +219,9 @@ function testimonial_btn(index) {
             testimonial_dots[x].classList.add("testimonial_dot_active");
         }
     }
+}
+
+function dark_mode_nav() {
+    var nav = document.getElementsByClassName("nav_holder")[0];
+    nav.classList.toggle("nav_scroll_active");
 }

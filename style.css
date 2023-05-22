@@ -158,12 +158,36 @@ p, span {
     left: 0px;
 }
 
+.nav_holder {
+    width: 100%;
+}
+
 nav {
     display: flex;
     flex-direction: column;
     height: 80px;
     width: 100%;
     margin: 0 auto;
+}
+
+.nav_scroll_active {
+    background: #16262E;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    > nav > nav_top > div > h1:nth-of-type(1)  {
+        color: #FFFFFF;
+    }
+    > nav > nav_btm > div > a {
+        color: #FFFFFF;
+    }
+    > nav > a {
+        background-color: #D8B796;
+        color: #000000;
+    }
+
+    animation: scroll-down 1s;
 }
 
 nav_top {
@@ -181,7 +205,7 @@ nav_btm {
     margin-top: 76px;
 }
 
-nav_btm a {
+nav_btm a, nav>a {
     color: #000000;
     text-decoration: none;
     font-family: 'Poppins';
@@ -195,6 +219,17 @@ nav_btm a {
     top: 100px;
     opacity: 0;
     animation: float_in .4s forwards;
+}
+
+nav>a {
+    margin: auto 0;
+}
+
+.cta {
+    color: #FFFFFF;
+    background: #16262E;
+    border-radius: 21.5px;
+    padding: 12px 24px;
 }
 
 nav_btm a:nth-of-type(1) {
@@ -222,6 +257,7 @@ nav_btm a:nth-of-type(5) {
     color: #FFFFFF;
     background-color: var(--primarycolourdark);
     padding: 2px 8px;
+    border-radius: 12px;
 
 }
 
@@ -229,20 +265,18 @@ nav_top h1 {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 46px;
+    line-height: 59px;
+    color: var(--darkcolour);
+    display: inline;
+    z-index: 2;
+    position: relative;
+}
 
-    color: #FFFFFF;
-    border: 1px solid black;
-    background-clip: content-box; /* <---- */
-    box-shadow: inset 0 0 0 10px white;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    width: 100px;
-    height: 48px;
+nav_top h1:nth-child(2) {
+    color: var(--secondarycolour);
+    margin: 0 -8px;
+    z-index: 1;
 }
 
 .nav_btn {
@@ -524,7 +558,7 @@ skills {
     transform: rotate(180deg) translateY(-14px) !important;
 }
 .skills_card_upside>:nth-child(2) {
-    transform: rotate(180deg) translateY(-34px);
+    transform: rotate(180deg) translateY(-25px);
 }
 
 .skills_card_small span {
@@ -969,7 +1003,6 @@ footer {
         display: flex;
         flex-direction: row;
         margin-top: 0;
-        margin-left: auto;
     }
     hero {
         max-width: 968px;
@@ -1129,5 +1162,13 @@ footer {
     100% {
         transform: translateY(0px);
         opacity: 1;
+    }
+}
+@keyframes scroll-down {
+    0% {
+        top: -80px
+    }
+    100% {
+        top: 0;
     }
 }
