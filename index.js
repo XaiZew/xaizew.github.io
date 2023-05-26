@@ -99,10 +99,11 @@ var timeline_sections = [];
 addEventListener("scroll", (event) => {
 
     // navbar dark mode
-    if (window.scrollY > 80 && oldScrollY < 80) {
+    var navtoggleThreshold = 120;
+    if (window.scrollY > navtoggleThreshold && oldScrollY < navtoggleThreshold) {
         dark_mode_nav();
     }
-    else if (window.scrollY < 80 && oldScrollY > 80) {
+    else if (window.scrollY < navtoggleThreshold && oldScrollY > navtoggleThreshold) {
         dark_mode_nav();
     }
 
