@@ -14,68 +14,15 @@ function nav_func(el) {
     }
 }
 
+function getHeight()
+{
+  var body = document.body;
+  var html = document.documentElement; 
+  var bodyH = Math.max(body.scrollHeight, body.offsetHeight, body.getBoundingClientRect().height, html.clientHeight, html.scrollHeight, html.offsetHeight);
+  return bodyH;
+}
+
 var skillsOffsetY;
-
-addEventListener("load", (event) => {
-
-    testimonial_slides();
-    skillsOffsetY = getOffset(document.getElementsByTagName("skills")[0]) - 50;
-    timelineOffsetY = getOffset(document.getElementsByTagName("timeline")[0]) - 50
-    timeline_sections = document.getElementsByClassName("timeline_section");
-    for (i = 0; i < timeline_sections.length; i++) {
-        if (timeline_sections[i] == document.getElementsByClassName("timeline_section_left")[0])
-            timeline_sections[i] = document.getElementsByClassName("timeline_section_left")[0];
-    }
-
-    var graphs = document.getElementsByClassName("graph");
-
-    for (i = 0; i < graphs.length; i++) {
-    
-        var options = {
-            percent:  graphs[i].getAttribute('data-percent') || 25,
-            size: graphs[i].getAttribute('data-size') || 220,
-            lineWidth: graphs[i].getAttribute('data-line') || 15,
-            rotate: graphs[i].getAttribute('data-rotate') || 0,
-            length: graphs[i].getAttribute('data-length') || 0
-        }
-        var canvas = document.createElement('canvas');
-        var span = document.createElement('span');
-        span.textContent = options.length + ' Months';
-            
-        if (typeof(G_vmlCanvasManager) !== 'undefined') {
-            G_vmlCanvasManager.initElement(canvas);
-        }
-        var ctx = canvas.getContext('2d');
-        canvas.width = canvas.height = options.size;
-    
-        span = graphs[i].appendChild(span);
-        graphs[i].appendChild(canvas);
-         
-        ctx.translate(options.size / 2, options.size / 2); // change center
-        ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI); // rotate -90 deg
-    
-        var radius = (options.size - options.lineWidth) / 2;
-        // drawCircle('#efefef', options.lineWidth, 100 / 100, radius, ctx);
-        // drawCircle('#555555', options.lineWidth, options.percent / 100, radius, ctx);
-        
-        percent = Math.min(Math.max(0, 1), 1);
-		ctx.beginPath();
-		ctx.arc(0, 0, radius, 0, Math.PI * 2 * 1, false);
-		ctx.strokeStyle = '#0000000';
-        ctx.lineCap = 'round'; // butt, round or square
-		ctx.lineWidth = options.lineWidth
-		ctx.stroke();
-
-        percent = Math.min(Math.max(0, options.percent / 100), 1);
-		ctx.beginPath();
-		ctx.arc(0, 0, radius, 0, Math.PI * 2 * options.percent / 100, false);
-		ctx.strokeStyle = '#00A3FF';
-        ctx.lineCap = 'square'; // butt, round or square
-		ctx.lineWidth = options.lineWidth
-		ctx.stroke();
-    }
-
-});
 
 var drawCircle = function(color, lineWidth, percent, ctx, radius) {
 		percent = Math.min(Math.max(0, percent), 1);
@@ -98,6 +45,12 @@ var timeline_sections = [];
 
 addEventListener("scroll", (event) => {
 
+    scrollFunction();
+
+});
+
+function scrollFunction() {
+
     // navbar dark mode
     var navtoggleThreshold = 120;
     if (window.scrollY > navtoggleThreshold && oldScrollY < navtoggleThreshold) {
@@ -118,8 +71,8 @@ addEventListener("scroll", (event) => {
             skillsImgs[i].style.display = "inline";
         }
     }
-    if (window.scrollY < skillsOffsetY - 800 || window.scrollY > skillsOffsetY + 400) {
-        console.log("hidden")
+    if (window.scrollY < skillsOffsetY - 800 && oldScrollY > skillsOffsetY - 800 || window.scrollY >= skillsOffsetY + 400 && oldScrollY < skillsOffsetY + 400) {
+        console.log("hidden skills---------------------")
         for (i = 0; i < skillsImgs.length; i++) {
             skillsImgs[i].style.display = "none";
         }
@@ -127,7 +80,7 @@ addEventListener("scroll", (event) => {
 
 
     timelineText = document.getElementsByClassName("timeline_text");
-    if ( (window.scrollY >= timelineOffsetY - 700 && oldScrollY < timelineOffsetY - 700) || (window.scrollY <= (timelineOffsetY + 400) && oldScrollY > window.scrollY) ) {
+    if ( (window.scrollY >= timelineOffsetY - 700 && oldScrollY < timelineOffsetY - 700) || (window.scrollY <= (timelineOffsetY + 400) && oldScrollY > timelineOffsetY + 400) ) {
         console.log("scrolled timeline");
 
         for (i = 0; i < timelineText.length; i++) {
@@ -141,7 +94,7 @@ addEventListener("scroll", (event) => {
             timeline_sections[i].style = "transform: translateX("+-translateXVal+"px)";
         }
     }
-    if (window.scrollY < timelineOffsetY - 800 || window.scrollY > timelineOffsetY + 900) {
+    if (window.scrollY <= timelineOffsetY - 800 && oldScrollY > timelineOffsetY - 800 || window.scrollY >= timelineOffsetY + 900 && oldScrollY < timelineOffsetY + 900) {
         console.log("hidden timeline")
         for (i = 0; i < timelineText.length; i++) {
             timelineText[i].style.display = "none";
@@ -156,8 +109,7 @@ addEventListener("scroll", (event) => {
     }
 
     oldScrollY = window.scrollY;
-
-});
+}
 
 function getOffset(el) {
     var bodyRect = document.body.getBoundingClientRect(),
@@ -226,3 +178,79 @@ function dark_mode_nav() {
     var nav = document.getElementsByClassName("nav_holder")[0];
     nav.classList.toggle("nav_scroll_active");
 }
+
+function nav_a_active_func(el, tX, w) {
+    nav_btm_div = document.getElementsByTagName("nav_btm")[0].getElementsByTagName("div")[0];
+    nav_btm_links = nav_btm_div.getElementsByTagName("a");
+    nav_active_div = document.getElementsByClassName("nav_active_div")[0];
+    for (i = 0; i < nav_btm_links.length; i++) {
+        nav_btm_links[i].style = "color: black;";
+    }
+    el.style = "color: white;";
+    nav_active_div.style = "transform: translateY(-4px) translateX("+tX+"px); width: "+w+"px;";
+}
+
+addEventListener("load", (event) => {
+    testimonial_slides();
+    skillsOffsetY = getOffset(document.getElementsByTagName("skills")[0]) - 50;
+    timelineOffsetY = getOffset(document.getElementsByTagName("timeline")[0]) - 50
+    timeline_sections = document.getElementsByClassName("timeline_section");
+    for (i = 0; i < timeline_sections.length; i++) {
+        if (timeline_sections[i] == document.getElementsByClassName("timeline_section_left")[0])
+            timeline_sections[i] = document.getElementsByClassName("timeline_section_left")[0];
+    }
+
+    var graphs = document.getElementsByClassName("graph");
+
+    for (i = 0; i < graphs.length; i++) {
+    
+        var options = {
+            percent:  graphs[i].getAttribute('data-percent') || 25,
+            size: graphs[i].getAttribute('data-size') || 220,
+            lineWidth: graphs[i].getAttribute('data-line') || 15,
+            rotate: graphs[i].getAttribute('data-rotate') || 0,
+            length: graphs[i].getAttribute('data-length') || 0
+        }
+        var canvas = document.createElement('canvas');
+        var span = document.createElement('span');
+        span.textContent = options.length + ' Months';
+            
+        if (typeof(G_vmlCanvasManager) !== 'undefined') {
+            G_vmlCanvasManager.initElement(canvas);
+        }
+        var ctx = canvas.getContext('2d');
+        canvas.width = canvas.height = options.size;
+    
+        span = graphs[i].appendChild(span);
+        graphs[i].appendChild(canvas);
+         
+        ctx.translate(options.size / 2, options.size / 2); // change center
+        ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI); // rotate -90 deg
+    
+        var radius = (options.size - options.lineWidth) / 2;
+        // drawCircle('#efefef', options.lineWidth, 100 / 100, radius, ctx);
+        // drawCircle('#555555', options.lineWidth, options.percent / 100, radius, ctx);
+        
+        percent = Math.min(Math.max(0, 1), 1);
+		ctx.beginPath();
+		ctx.arc(0, 0, radius, 0, Math.PI * 2 * 1, false);
+		ctx.strokeStyle = '#0000000';
+        ctx.lineCap = 'round'; // butt, round or square
+		ctx.lineWidth = options.lineWidth
+		ctx.stroke();
+
+        percent = Math.min(Math.max(0, options.percent / 100), 1);
+		ctx.beginPath();
+		ctx.arc(0, 0, radius, 0, Math.PI * 2 * options.percent / 100, false);
+		ctx.strokeStyle = '#00A3FF';
+        ctx.lineCap = 'square'; // butt, round or square
+		ctx.lineWidth = options.lineWidth
+		ctx.stroke();
+    }
+
+    scrollFunction();
+    setTimeout(function(){
+        document.getElementById("gradient_body").style = "height: "+getHeight()+"px;";
+        console.log(document.body.scrollHeight);
+    }, 200);
+});
