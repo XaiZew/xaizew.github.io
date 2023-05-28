@@ -49,10 +49,11 @@ addEventListener("scroll", (event) => {
 
 });
 
+var navtoggleThreshold = 120;
+
 function scrollFunction() {
 
     // navbar dark mode
-    var navtoggleThreshold = 120;
     if (window.scrollY > navtoggleThreshold && oldScrollY < navtoggleThreshold) {
         dark_mode_nav();
     }
@@ -176,7 +177,11 @@ function testimonial_btn(index) {
 
 function dark_mode_nav() {
     var nav = document.getElementsByClassName("nav_holder")[0];
-    nav.classList.toggle("nav_scroll_active");
+    console.log(oldScrollY);
+    if (oldScrollY <= navtoggleThreshold)
+        nav.classList.add("nav_scroll_active");
+    else
+        nav.classList.remove("nav_scroll_active");
 }
 
 function nav_a_active_func(el, tX, w) {

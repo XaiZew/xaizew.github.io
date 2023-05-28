@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
 :root {
     --darkcolour: #16262E;
@@ -20,6 +21,10 @@
 a {
     text-decoration: none;
     font-family: 'Poppins';
+}
+
+body > about, skills, timeline, projects, testimonial {
+    margin: 0 0 240px 0 !important;
 }
 
 ::-webkit-scrollbar {
@@ -428,6 +433,16 @@ nav_top h1:nth-child(2) {
     padding-left: 11px;
 }
 
+.hero_text h1 {
+    font-family: 'Inter';
+    text-transform: uppercase;
+    font-size: 64px;
+}
+
+.hero_text p {
+    font-size: 20px;
+}
+
 .hero_text::before {
     width: 1px;
     height: 100%;
@@ -521,7 +536,7 @@ about {
 }
 
 .about_text {
-    max-width: 420px;
+    max-width: 580px;
     margin: 40px auto 0 auto;
 
     > h4 {
@@ -663,21 +678,24 @@ skills {
     margin: 0 -40px;
     > div > img {
         width: 60px;
-        margin-top: -12px;
+        margin-top: 12px;
     }
 }
 .skills_card:nth-of-type(5) {
     width: 140px;
     height: 125px;
     > div > img {
-        width: 60px;
-        margin-top: 25px;
+        width: 50px;
+        margin-top: 30px;
     }
 }
 .skills_card:nth-of-type(6) {
+    > div > p {
+        font-size: 14px;
+        margin-top: 16px;
+    }
     > div > img {
-        width: 50px;
-        margin-top: 14px;
+        width: 40px;
     }
 }
 
@@ -940,24 +958,26 @@ projects {
 testimonial {
     text-align: center;
     max-width: 366px;
+}
 
-    > .testimonial_dots {
-        display: flex;
-        gap: 22px;
-        justify-content: center;
-        > .testimonial_dot {
-            cursor: pointer;
-            width: 16px;
-            height: 16px;
-            background-color: var(--secondarycolour);
-            border-radius: 100%;
-            border: 1px solid var(--darkcolour);
-        }
-        > .testimonial_dot_active {
-            background-color: var(--primarycolour);
-            border: none;
-        }
-    }
+testimonial > .testimonial_dots {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+}
+
+.testimonial_dot {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    background-color: var(--secondarycolour);
+    border-radius: 100%;
+    /* border: 1px solid var(--darkcolour); */
+}
+
+.testimonial_dot_active {
+    background-color: var(--primarycolour);
+    border: none;
 }
 
 #testimonial_slides {
@@ -1057,6 +1077,10 @@ testimonial {
     }
 }
 
+.testimonial_card > p::before, .testimonial_card > p::after {
+    content: '"';
+}
+
 contact {
     max-width: 360px;
     width: 100%;
@@ -1118,7 +1142,7 @@ contact {
 }
 
 #contact {
-    scroll-margin-top: 120px;
+    scroll-margin-top: 82px;
 }
 
 footer {
@@ -1145,10 +1169,21 @@ footer {
     }
 }
 
+.footer_socials > img {
+    cursor: pointer;
+}
+
 .secondary_border {
     width: 100%;
     height: 2px;
     background: linear-gradient(90deg, rgba(216, 163, 150, 0) -0.03%, rgba(216, 183, 150, 0.64) 34.89%, rgba(216, 183, 150, 0.64) 52.61%, rgba(216, 183, 150, 0.64) 70.84%, rgba(216, 183, 150, 0) 100.03%);
+}
+
+.hero_border {
+    width: 100%;
+    height: 1.5px;
+    background: linear-gradient(90deg, #0083A4 0%, #D8B796 75.52%);
+    box-shadow: 0px 4px 8px 2px rgba(0, 131, 164, 0.44);
 }
 
 .readmore, input[type=submit] {
@@ -1187,6 +1222,9 @@ footer {
         justify-content: space-between;
         height: calc(100vh - 80px);
     }
+    .hero_text p {
+        padding: 0 50px 10px;
+    }
     .webhide {
         display: none !important;
     }
@@ -1224,7 +1262,7 @@ footer {
             font-size: 24px;
         }
         > p {
-            font-size: 18px;
+            font-size: 16px;
             line-height: 27px;
         }
     }
