@@ -14,9 +14,9 @@
     <div class="nav_holder">
         <nav>
             <nav_top>
-                <div><h1>J</h1><h1>T</h1></div>
+                <a href="#hero"><h1>J</h1><h1>T</h1></a>
                 <!-- <div class="nav_btn webhide" onclick="nav_func();"></div> -->
-                <div id="nav_burger" class="webhide" onclick="nav_func(this);">
+                <div id="nav_burger" class="webhide" onclick="nav_open_close(true);">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -25,11 +25,11 @@
             <nav_btm>
                 <div>
                     <div class="nav_active_div"></div>
-                    <a href="#hero" class="nav_active" onmouseover="nav_a_active_func(this, 0);">Home</a>
-                    <a href="#about" onmouseover="nav_a_active_func(this, 71);">About</a>
-                    <a href="#skills" onmouseover="nav_a_active_func(this, 140, 65);">Skills</a>
-                    <a href="#projects" onmouseover="nav_a_active_func(this, 203, 85);">Projects</a>
-                    <a href="#contact" class="webhide">Contact</a>
+                    <a href="#hero" class="nav_active" onmouseover="nav_a_active_func(this, 0);" onclick="nav_open_close(false);">Home</a>
+                    <a href="#about" onmouseover="nav_a_active_func(this, 71);" onclick="nav_open_close(false);">About</a>
+                    <a href="#skills" onmouseover="nav_a_active_func(this, 140, 65);" onclick="nav_open_close(false);">Skills</a>
+                    <a href="#projects" onmouseover="nav_a_active_func(this, 203, 85);" onclick="nav_open_close(false);">Projects</a>
+                    <a href="#contact" class="webhide" onmouseover="nav_a_active_func(this, 274, 85);" onclick="nav_open_close(false);">Contact</a>
                 </div>
             </nav_btm>
             <a href="#contact" class="webshow cta">Contact</a>
@@ -98,9 +98,10 @@
             <div class="skills_cards_top">
 
                 <div class="skills_card skills_card_smaller webshow">
-                    <div><img src="./images/icons/unity.svg">
-                    <p>Unity</p>
-                </div>
+                    <div>
+                        <img src="./images/icons/unity.svg">
+                        <p>Unity</p>
+                    </div>
                     
     
                     <div class="skills_card_hover">
@@ -115,7 +116,7 @@
                     </div>
     
                     <div class="skills_card_hover">
-                        <div class="graph" data-percent="75" data-size="130" data-line="6" data-length="18"></div>
+                        <div class="graph" data-percent="75" data-size="110" data-line="6" data-length="18"></div>
                     </div>
                 </div>
     

@@ -1,14 +1,16 @@
-function nav_func(el) {
+function nav_open_close(burger_press = false) {
+    if (window.innerWidth > 768) return;
     let nav = document.getElementsByTagName("nav")[0];
     let nav_btm = document.getElementsByTagName("nav_btm")[0];
+    let burger = document.getElementById("nav_burger");
     
-    if (nav_btm.style.display == "none") {
-        el.classList.add('burger_open');
+    if (getComputedStyle(nav_btm).getPropertyValue('display') == "none" && burger_press == true) {
+        burger.classList.add('burger_open');
         nav_btm.style = "display: flex;";
         nav.style = "height: 100vh;"
     }
     else {
-        el.classList.remove('burger_open');
+        burger.classList.remove('burger_open');
         nav_btm.style = "display: none;";
         nav.style = "height: 80px;";
     }
@@ -44,9 +46,7 @@ var timelineText = [];
 var timeline_sections = [];
 
 addEventListener("scroll", (event) => {
-
     scrollFunction();
-
 });
 
 var navtoggleThreshold = 120;
@@ -193,7 +193,7 @@ function dark_mode_nav() {
     }
 }
 
-function nav_a_active_func(el, tX, w) {
+function nav_a_active_func(el, tX = 0, w = 69) {
     nav_btm_div = document.getElementsByTagName("nav_btm")[0].getElementsByTagName("div")[0];
     nav_btm_links = nav_btm_div.getElementsByTagName("a");
     nav_active_div = document.getElementsByClassName("nav_active_div")[0];
@@ -201,7 +201,17 @@ function nav_a_active_func(el, tX, w) {
         nav_btm_links[i].style = "color: black;";
     }
     el.style = "color: white;";
-    nav_active_div.style = "transform: translateY(-4px) translateX("+tX+"px); width: "+w+"px;";
+    var tvar = (w - el.offsetWidth) / 2;
+    if (window.innerWidth <= 768) {
+        nav_active_div.style = "top: "+(el.offsetTop - 4)+"px; width: "+w+"px;";
+    }
+    else {
+        console.log(tvar);
+        if (tvar > 0)
+            nav_active_div.style = "left: "+(el.offsetLeft - tvar)+"px; width: "+w+"px;";
+        else
+            nav_active_div.style = "left: "+(el.offsetLeft)+"px; width: "+w+"px;";
+    }
 }
 
 addEventListener("load", (event) => {

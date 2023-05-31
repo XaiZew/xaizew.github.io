@@ -216,7 +216,7 @@ nav {
     border-radius: 12px;
     width: 69px;
     height: 25px;
-    transform: translateY(-4px) translateX(0px);
+    transform: translateY(0) translateX(0px);
     margin: auto 0;
     /* transition: .4s all cubic-bezier(0.1, -0.5, 0.265, .8); */
     transition: .35s all ease-in-out;
@@ -230,7 +230,7 @@ nav {
 
     animation: scroll-down 1s;
 }
-.nav_scroll_active > nav > nav_top > div > h1:nth-of-type(1)  {
+.nav_scroll_active > nav > nav_top > a > h1:nth-of-type(1)  {
     color: #FFFFFF;
 }
 .nav_scroll_active > nav > nav_btm > div > a {
@@ -243,7 +243,13 @@ nav {
 .nav_scroll_active > nav > a:hover {
     background: var(--ssecondarycolourdark);
 }
-
+nav_btm > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+}
 
 nav_top {
     padding: 15px;
@@ -472,6 +478,7 @@ hero {
 
 hero > div:first-of-type {
     width: 100vw;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1225,6 +1232,14 @@ footer > div {
         display: flex;
         flex-direction: row;
         margin-top: 0;
+    }
+    nav_btm > div {
+        display: flex;
+        text-align: left;
+        flex-direction: row;
+    }
+    hero > div:first-of-type {
+        padding: 0;
     }
     .hero_text p {
         padding: 0 50px 10px;
