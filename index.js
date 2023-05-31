@@ -176,12 +176,21 @@ function testimonial_btn(index) {
 }
 
 function dark_mode_nav() {
-    var nav = document.getElementsByClassName("nav_holder")[0];
+    let nav = document.getElementsByClassName("nav_holder")[0];
+    let nav_burger_span = document.getElementById("nav_burger").getElementsByTagName("span");
     console.log(oldScrollY);
-    if (oldScrollY <= navtoggleThreshold)
+    if (oldScrollY <= navtoggleThreshold) {
         nav.classList.add("nav_scroll_active");
-    else
+        for (i = 0; i < nav_burger_span.length; i++) {
+            nav_burger_span[i].style = "background: #FFFFFF";
+        }
+    }
+    else {
         nav.classList.remove("nav_scroll_active");
+        for (i = 0; i < nav_burger_span.length; i++) {
+            nav_burger_span[i].style = "background: #2C2C2CFF";
+        }
+    }
 }
 
 function nav_a_active_func(el, tX, w) {
