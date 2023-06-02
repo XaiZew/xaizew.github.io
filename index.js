@@ -278,3 +278,27 @@ addEventListener("load", (event) => {
         console.log(document.body.scrollHeight);
     }, 200);
 });
+
+document.addEventListener("mousemove", floating_function);
+
+function floating_function(e) {
+    console.log("mousemoved");
+    document.querySelectorAll('.floating_object').forEach(function(obj) {
+        let strength = obj.getAttribute('data-strength');
+        
+
+
+        let a = obj.offsetLeft - e.clientX;
+        let b = obj.offsetTop - e.clientY;
+        // let x = (e.clientX * strength / 150) / Math.sqrt(a*a + b*b);
+        let x = Math.sqrt(a*a + b*b) / strength / 10;
+        console.log(x);
+        if (obj.src == "http://127.0.0.1:5500/images/hero_triangles/1.svg")
+            console.log(Math.sqrt(a*a + b*b) / strength);
+        let y = e.clientY * strength / 150;
+        let r = (e.clientX * strength / 150) + (e.clientY * strength / 150);
+
+        obj.style.transform = "translateX(" + x + "px) translateY(" + y + "px) rotate(" + 0 + "deg)";
+    });
+
+}
