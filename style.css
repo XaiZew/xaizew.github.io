@@ -8,6 +8,7 @@
     --primarycolourdark: #0083A4;
     --secondarycolour: #D8B796;
     --ssecondarycolourdark: #c8a581;
+    --secondarycolourlight: #FFD9B4;
     --textcolour: #2c2c2ccf;
 }
 
@@ -339,7 +340,7 @@ nav_top h1 {
 }
 
 nav_top h1:nth-child(2) {
-    color: var(--secondarycolour);
+    color: var(--secondarycolourlight);
     margin: 0 -8px;
     z-index: 1;
 }
@@ -445,6 +446,10 @@ nav_top h1:nth-child(2) {
     /* background: linear-gradient(107.65deg, rgba(0, 131, 164, 0.4) 0%, rgba(216, 183, 150, 0.4) 100%); */
     background: linear-gradient(105.37deg, #0083A482 0%, #D8B79682 76.87%);
     z-index: -1;
+}
+
+.floating_object {
+    transition: all .6s ease-out;
 }
 
 .hero_text {
@@ -903,8 +908,8 @@ projects {
 }
 
 .projects_card {
-    width: 320px;
-    height: 180px;
+    width: 352px;
+    height: 198px;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -914,46 +919,49 @@ projects {
     transition: all 5s ease-in-out;
 
     filter: drop-shadow(3px 5px 12px rgb(0 0 0 / 0.2));
+}
 
+.projects_card > img {
+    transform: scale(1.1);
+    min-height: 100%;
+    width: 100%;
+    position: absolute;
+    transition: all .2s ease-in-out;
+    filter: blur(2px);
+    z-index: -1;
+}
+.projects_card > h1 {
+    position: relative;
+    z-index: 2;
+    margin: 5px auto 2px auto;
+    font-family: 'Poppins';
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.9);
 
-    > img {
-        min-height: 100%;
-        width: 100%;
-        position: absolute;
-        transition: all .2s ease-in-out;
-        filter: blur(2px);
-        z-index: -1;
-    }
-    > h1 {
-        margin: 15px auto 2px auto;
-        position: relative;
-        z-index: 2;
+    transition: all .25s ease-in-out;
+    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
 
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 40px;
-        line-height: 60px;
-        color: rgba(255, 255, 255, 0.9);
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 36px;
+}
+.projects_card > p {
+    color: #FFFFFF;
+    margin: 0 13px 24px 13px;
+    animation: fade-in-upwards .4s ease-in-out;
+    text-align: left;
+    height: 110px;
+    display: block;
+    font-size: 12px;
+    line-height: 18px;
+}
+.projects_card > a {
+    display: flex;
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 14px;
 
-        transition: all .25s ease-in-out;
-
-        transform: translateY(120%);
-        text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
-    }
-    > p {
-        color: #FFFFFF;
-        margin: 0 13px 24px 13px;
-        font-size: 16px;
-        display: none;
-        animation: fade-in-upwards .4s ease-in-out;
-        text-align: left;
-        height: 110px;
-    }
-    > a {
-        display: none;
-        animation: fade-in-upwards .4s ease-in-out;
-    }
+    animation: fade-in-upwards .4s ease-in-out;
 }
 
 .projects_card:hover {
@@ -963,7 +971,8 @@ projects {
         filter: blur(1px);
     }
     > h1 {
-        transform: scale(1.1);
+        margin: 5px auto 2px auto;
+        transform: translateY(0);
     }
     > p {
         display: block;
@@ -1295,9 +1304,33 @@ footer > div {
         }
     }
 
+    /* PORJECTS */
+
     .projects_card {
         width: 480px;
         height: 270px;
+    }
+    .projects_card > img {
+        transform: scale(1);
+        filter: blur(2px);
+    }
+    .projects_card > h1 {
+        transform: scale(1);
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 60px;
+        transform: translateY(120%);
+    }
+    .projects_card > p {
+        display: none;
+        font-size: 16px;
+        line-height: normal;
+    }
+    .projects_card > a {
+        display: none;
+        font-size: 16px;
+        line-height: 18px;
+        margin-bottom: 14px;
     }
 
     .timeline_section {
