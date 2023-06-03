@@ -694,7 +694,7 @@ skills {
 }
 .skills_cards_btm>.skills_card:nth-of-type(2) {
     > div > img {
-        width: 120px;
+        width: 40px;
         margin-top: 5px;
     }
 }
