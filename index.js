@@ -277,7 +277,28 @@ addEventListener("load", (event) => {
         document.getElementById("gradient_body").style = "height: "+getHeight()+"px;";
         console.log(document.body.scrollHeight);
     }, 200);
+    if (window.innerWidth <= 780)
+        setInterval(infinity_animate_object);
 });
+
+var iao_timer = 0;
+var iao_x = 0;
+var iao_y = 0;
+
+var floating_x = 1;
+var floating_y = 1;
+
+function infinity_animate_object() {
+    iao_timer++;
+    console.log(iao_timer);
+    iao_x = Math.cos(iao_timer / 1500);
+    iao_y = Math.sin(2*(iao_timer / 1500)) / 2;
+    document.querySelectorAll('.floating_object').forEach(function(obj) {
+        floating_x = (iao_x * 50 * obj.getAttribute('data-strength'));
+        floating_y = (iao_y * 50 * obj.getAttribute('data-strength'));
+        obj.style.transform = "translateX(" + floating_x + "px) translateY(" + floating_y + "px) rotate(" + 0 + "deg)";
+    });
+}
 
 document.addEventListener("mousemove", floating_function);
 
@@ -290,16 +311,14 @@ function floating_function(e) {
         let b = obj.offsetTop - e.clientY;
 
         // let x = (e.clientX * strength / 150) / Math.sqrt(a*a + b*b);
-        let x = Math.sqrt(a*a + b*b) / strength / 10;
-
-        console.log(x);
+        let floating_x = (Math.sqrt(a*a + b*b) / strength / 10);
         
-        if (obj.src == "http://127.0.0.1:5500/images/hero_triangles/1.svg")
-            console.log(Math.sqrt(a*a + b*b) / strength);
+        // if (obj.src == "http://127.0.0.1:5500/images/hero_triangles/1.svg")
+        //     console.log(Math.sqrt(a*a + b*b) / strength);
         
-        let y = e.clientY * strength / 150;
+        let floating_y = (e.clientY * strength / 150);
         let r = (e.clientX * strength / 150) + (e.clientY * strength / 150);
 
-        obj.style.transform = "translateX(" + x + "px) translateY(" + y + "px) rotate(" + 0 + "deg)";
+        obj.style.transform = "translateX(" + floating_x + "px) translateY(" + floating_y + "px) rotate(" + 0 + "deg)";
     });
 }

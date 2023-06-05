@@ -504,7 +504,7 @@ hero > div:first-of-type > div {
     left: 50%;
     top: 50%;
     transform: translate(-50%,calc(-50% + 40px));
-    overflow: hidden;
+    overflow-x: clip;
 }
 
 .hero_images > div {
@@ -1397,6 +1397,10 @@ footer > div {
         max-width: 420px;
         height: 340px;
     }
+}
+
+#infinity_animate_object {
+    position: absolute;
 }
 
 @media screen and (min-width: 1200px) {
