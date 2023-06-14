@@ -115,6 +115,11 @@ p, span {
     padding: 9px 22px;
     color: #FFFFFF;
     border-radius: 2px;
+    transition: .2s all ease-in-out;
+    font-weight: 600;
+}
+.btn_100:hover {
+    background-color: #1d3641;
 }
 
 /*
@@ -493,7 +498,7 @@ hero {
     text-align: center;
     display: flex;
     justify-content: space-between;
-    height: calc(72vh - 80px);
+    height: calc(78vh - 80px);
 }
 
 .hero_text > h4 {
