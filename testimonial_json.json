@@ -1,20 +1,23 @@
 [
     {
-        "title" : "Title",
-        "subtitle" : "Job Title",
-        "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
-        "img" : "./images/anotherguy.jpg"
+        "title" : "Michael Vars",
+        "subtitle" : "Raedam - Web Lead",
+        "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla.",
+        "img" : "./images/anotherguy.jpg",
+        "linkedin" : ""
     },
     {
         "title" : "Title",
         "subtitle" : "Job Title",
-        "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
-        "img" : "./images/anotherguy.jpg"
+        "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla.",
+        "img" : "./images/anotherguy.jpg",
+        "linkedin" : ""
     },
     {
         "title" : "Title",
         "subtitle" : "Job Title",
-        "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla, mattis ligula consectetur, ultrices mauris.",
-        "img" : "./images/anotherguy.jpg"
+        "text" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Pellentesque sit amet sapien fringilla.",
+        "img" : "./images/anotherguy.jpg",
+        "linkedin" : ""
     }
 ]

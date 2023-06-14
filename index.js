@@ -142,19 +142,38 @@ function testimonial_slides() {
                 if (y == 0) testimonial_slide.classList.add("testimonial_slide_active");
                 for (x = 0; x < cardPerSlide; x++) { // foreach card per slide
                         if (cardCount >= data.length) return
+                        // let testimonial_card = testimonial_slide.appendChild(document.createElement("div"));
+                        // testimonial_card.classList.add("testimonial_card");
+                        // let testimonial_card_top = testimonial_card.appendChild(document.createElement("div"))
+                        // testimonial_card_top.classList.add("testimonial_card_top");
+                        // let testimonial_card_top_img = testimonial_card_top.appendChild(document.createElement("img"));
+                        // testimonial_card_top_img.setAttribute("src", data[cardCount].img);
+                        // let testimonial_card_top_div = testimonial_card_top.appendChild(document.createElement("div"));
+                        // let testimonial_card_title = testimonial_card_top_div.appendChild(document.createElement("h1"));
+                        // testimonial_card_title.innerHTML = data[cardCount].title
+                        // testimonial_card_subtitle = testimonial_card_top_div.appendChild(document.createElement("h2"));
+                        // testimonial_card_subtitle.innerHTML = data[cardCount].subtitle;
+                        // testimonial_card_text = testimonial_card.appendChild(document.createElement("p"));
+                        // testimonial_card_text.innerHTML = data[cardCount].text;
+                        
                         let testimonial_card = testimonial_slide.appendChild(document.createElement("div"));
-                        testimonial_card.classList.add("testimonial_card");
-                        let testimonial_card_top = testimonial_card.appendChild(document.createElement("div"))
-                        testimonial_card_top.classList.add("testimonial_card_top");
-                        let testimonial_card_top_img = testimonial_card_top.appendChild(document.createElement("img"));
-                        testimonial_card_top_img.setAttribute("src", data[cardCount].img);
-                        let testimonial_card_top_div = testimonial_card_top.appendChild(document.createElement("div"));
-                        let testimonial_card_title = testimonial_card_top_div.appendChild(document.createElement("h1"));
-                        testimonial_card_title.innerHTML = data[cardCount].title
-                        testimonial_card_subtitle = testimonial_card_top_div.appendChild(document.createElement("h2"));
-                        testimonial_card_subtitle.innerHTML = data[cardCount].subtitle;
-                        testimonial_card_text = testimonial_card.appendChild(document.createElement("p"));
-                        testimonial_card_text.innerHTML = data[cardCount].text;
+                        testimonial_card.classList.add("testimonial_card_v2")
+                        let testimonial_card_profile = testimonial_card.appendChild(document.createElement("div"))
+                        testimonial_card_profile.classList.add("testimonial_card_v2_profile");
+                        let testimonial_card_profile_img = testimonial_card_profile.appendChild(document.createElement("img"))
+                        testimonial_card_profile_img.setAttribute("src", data[cardCount].img);
+                        let testimonial_card_profile_h1 = testimonial_card_profile.appendChild(document.createElement("h1"))
+                        testimonial_card_profile_h1.innerHTML = data[cardCount].title;
+                        let testimonial_card_profile_h2 = testimonial_card_profile.appendChild(document.createElement("h2"))
+                        testimonial_card_profile_h2.innerHTML = data[cardCount].subtitle;
+                        let testimonial_profile_socials = testimonial_card_profile.appendChild(document.createElement("div"));
+                        let testimonial_profile_socials_linkedin = testimonial_profile_socials.appendChild(document.createElement("img"));
+                        testimonial_profile_socials_linkedin.setAttribute("onclick", "window.open('" +data[cardCount].linkedin+ "')");
+                        testimonial_profile_socials_linkedin.setAttribute("src", "./images/socials/linkedin_light.svg");
+                        testimonial_card_text = testimonial_card.appendChild(document.createElement("div"));
+                        testimonial_card_text.classList.add("testimonial_card_v2_text");
+                        testimonial_card_text_p = testimonial_card_text.appendChild(document.createElement("p"));
+                        testimonial_card_text_p.innerHTML = data[cardCount].text;
                         cardCount++;
                 }
             }
